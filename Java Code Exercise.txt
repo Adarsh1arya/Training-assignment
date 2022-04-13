@@ -1,0 +1,490 @@
+String, StringBuilder, StringBuffer
+
+Write a program to concatenate StringBuilder & StringBuffer objects.
+
+package assignment.coreJava.strings;
+
+public class Concetenate {
+
+	public static void main(String[] args) {
+		StringBuilder sb = new StringBuilder("Adarsh");
+		System.out.println(sb);
+		
+		StringBuffer sf = new StringBuffer(" Arya");
+		System.out.println(sf);
+		
+		StringBuilder s = new StringBuilder("Hello!! Welcome to Java World");
+		System.out.println(s);
+		
+		//Concatenate
+		sb.append(sf);
+		System.out.println("\nConcatenate: " + sb);
+		
+		
+	}
+
+}
+
+===========================================================================
+
+Write a program to get a substring of a StringBuffer.
+
+package assignment.coreJava.strings;
+
+public class Substring {
+
+	public static void main(String[] args) {
+		
+		StringBuilder s = new StringBuilder("Hello!! Welcome to Java World");
+		System.out.println(s);
+		
+		//substring
+		System.out.println("\nSubstring: " + s.substring(5, 19));
+
+	}
+
+}
+
+===========================================================================
+
+Write a program to display the length and capacity of String, StringBuilder and StringBuffer.
+
+package assignment.coreJava.strings;
+
+public class LengthAndCapacity {
+
+	public static void main(String[] args) {
+		
+		StringBuilder s = new StringBuilder("Hello!! Welcome to Java World");
+		System.out.println(s);
+		
+		//Length and Capacity
+		System.out.println("\nLength of the String: " + s.length());
+		System.out.println("Capacity of the String: " + s.capacity());
+
+	}
+
+}
+
+===========================================================================
+
+Write a program to check whether two given strings contains same set of characters as well as having same length.
+
+package assignment.coreJava.strings;
+
+
+public class StringCompare {
+	
+    public static void main(String[] args) {
+        String s1 = "amar";
+        String s2 = "rama";
+        StringCompare obj = new StringCompare();
+        if(obj.checkStrings(s1,s2)){
+            System.out.println("Both contains same characters");
+        }
+        else {
+            System.out.println("Both contains different characters");
+        }
+
+
+
+    }
+
+    public boolean checkStrings(String s1, String s2) {
+        boolean response = true;
+        if(s1.length() == s2.length()){
+            for (int i = 0; i < s2.length() ; i++) {
+                if(s1.contains(""+ s2.charAt(i))){
+                   continue;
+                }
+                else{
+                    response = false;
+                    break;
+                }
+            }
+
+        }
+        else{
+            response = false;
+        }
+
+        return response;
+    }
+}
+
+===========================================================================
+
+Write a program to lexicographically arrange the given strings "Raman" , "Aman" , "Vikram" , "Shyam" and "Bhuvan".
+
+package assignment.coreJava.strings;
+import java.util.Arrays;
+
+public class StringSort {
+
+	public static void main(String[] args) {
+		String s[] = {"Raman" , "Aman" , "Vikram" , "Shyam", "Bhuvan"};
+		Arrays.sort(s);
+		for(String s1:s) {
+			System.out.print(s1 + " ");
+		}
+	}
+
+}
+
+===========================================================================
+
+Create a List & Set of 10 integers and demonstrate ordered and unordered collection as well as duplicate allowed and not allowed. Demonstrate addAll() method also.
+
+package assignment.coreJava;
+import java.util.*;
+
+public class ListAndSet {
+
+	public static void main(String[] args) {
+		
+		List<Integer> n1 = new ArrayList<>();
+		n1.add(5);
+		n1.add(9);
+		n1.add(2);
+		n1.add(4);
+		n1.add(16);
+		n1.add(3);
+		n1.add(11);
+		n1.add(23);
+		n1.add(34);
+		n1.add(26);
+		System.out.println("List: " + n1);
+		
+		n1.add(4);
+		n1.add(26);
+		System.out.println("In list Duplicate allowed: " + n1);
+		
+		Set<Integer> n2 = new HashSet<>();
+		n2.add(7);
+		n2.add(6);
+		n2.add(9);
+		n2.add(3);
+		n2.add(14);
+		n2.add(21);
+		n2.add(5);
+		n2.add(8);
+		n2.add(12);
+		n2.add(24);
+		System.out.println("\nSet: " + n2);
+		
+		n2.add(3);
+		n2.add(5);
+		n2.add(8);
+		System.out.println("In Set Duplicate are ignored: " + n2);
+		
+		n2.addAll(n1);
+		System.out.println("\nAfter adding to set: " + n2);
+		
+		n1.addAll(n2);
+		System.out.println("\nAfter adding to list: " + n1);
+		
+	}
+
+}
+
+===========================================================================
+
+Create a List of 10 Integer objects and try to access 15th index. Properly analysis the output.
+
+package assignment.coreJava;
+import java.util.*;
+
+public class ListIndex {
+
+	public static void main(String[] args) {
+		List<Integer> n1 = new ArrayList<>();
+		n1.add(5);
+		n1.add(9);
+		n1.add(2);
+		n1.add(4);
+		n1.add(16);
+		n1.add(3);
+		n1.add(11);
+		n1.add(23);
+		n1.add(34);
+		n1.add(26);
+		System.out.println(n1);
+		
+		System.out.println("\n" + n1.get(4));
+		System.out.println("\n" + n1.get(15));
+		
+
+	}
+
+}
+
+===========================================================================
+
+Create a List of 10 Book objects, where Book is a user defined or custom class. Book class contains following field String bookName, String author, long isbn, & double price. Book class must be properly encapsulated and must implement data hiding. Book class contains parameterized constructors and no-argument constructor. Book class must override String toString() of Object class to represent Book object as string while printing. Kindly sort the list of book by price.
+
+package assignment.coreJava.book;
+import java.util.*;
+
+class Books implements Comparable<Books>{
+	private String bookname;
+	private String author;
+	private long isbn;
+	private double price;
+	
+	public Books(String bookname, String author, long isbn, double price) {
+		
+		this.bookname = bookname;
+		this.author = author;
+		this.isbn = isbn;
+		this.price = price;
+		
+	}
+
+	public String getBookname() {
+		return bookname;
+	}
+
+	public void setBookname(String bookname) {
+		this.bookname = bookname;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public long getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(long isbn) {
+		this.isbn = isbn;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "[bookname= " + bookname + ", author= " + author + ", isbn= " + isbn + ", price= " + price + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(author, bookname, isbn, price);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Books other = (Books) obj;
+		return Objects.equals(author, other.author) && Objects.equals(bookname, other.bookname) && isbn == other.isbn
+				&& Double.doubleToLongBits(price) == Double.doubleToLongBits(other.price);
+	}
+
+	@Override
+	public int compareTo(Books o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
+
+public class BookClass {
+
+	public static void main(String[] args) {
+		List<Books> books = new ArrayList<>();
+		
+		books.add(new Books("The Great Gatsby", "F. Scott Fitzgerald", 10012212, 500));
+		books.add(new Books("To Kill a Mockingbird", "Harper Lee", 10012218, 570));
+		books.add(new Books("Nineteen Eighty-Four", "George Orwell", 10012213, 450));
+		books.add(new Books("Pride and Prejudice", "Jane Austen", 10012219, 520));
+		
+		System.out.println("Books: " + books);
+		
+		Collections.sort(books, Comparator.comparing(Books::getPrice));
+		System.out.println("\nAfter Sorted by price:\n " + books);
+
+	}
+
+}
+
+===========================================================================
+
+Create a List of 10 Student objects, where Student is a user defined class. Student class contains three private fields int rollNo, String name, and double cpi. Student class must override String toString() method of Object class. Kindly sort the student by there name.
+
+package assignment.coreJava.students;
+import java.util.*;
+
+class Students implements Comparable<Students>{
+	private int rollno;
+	private String name;
+	private double cpi;
+	
+	public Students(int rollNo, String name, double cpi) {
+		this.rollno = rollNo;
+		this.name = name;
+		this.cpi = cpi;
+	}
+
+	public int getRollno() {
+		return rollno;
+	}
+
+
+
+	public void setRollno(int rollno) {
+		this.rollno = rollno;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public double getCpi() {
+		return cpi;
+	}
+
+
+
+	public void setCpi(double cpi) {
+		this.cpi = cpi;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cpi, name, rollno);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Students other = (Students) obj;
+		return Double.doubleToLongBits(cpi) == Double.doubleToLongBits(other.cpi) && Objects.equals(name, other.name)
+				&& rollno == other.rollno;
+	}
+
+	@Override
+	public String toString() {
+		return "Students [rollno=" + rollno + ", name=" + name + ", cpi=" + cpi + "]";
+	}
+
+	@Override
+	public int compareTo(Students o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
+
+public class StudentClass {
+
+	public static void main(String[] args) {
+		List<Students> student = new ArrayList<>();
+		
+		student.add(new Students(1, "Adarsh", 121331002));
+		student.add(new Students(3, "Deepu", 121331007));
+		student.add(new Students(7, "Mani", 121331010));
+		student.add(new Students(2, "Anuj", 121331004));
+		student.add(new Students(6, "Dubey", 121331009));
+		
+		System.out.println("Students: "+ student);
+		
+		Collections.sort(student, Comparator.comparing(Students::getName));
+		System.out.println("\nAfter sorted by name: " + student);
+		
+
+	}
+
+}
+
+===========================================================================
+
+Create objects of all the wrapper classes and print then on console, with using constructor.
+
+package assignment.coreJava;
+
+public class Wrapper {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Integer myInt = 10;
+	    Double myDouble = 11.65;
+	    Character myChar = 'T';
+	    Boolean myBool= true;
+	    System.out.println(myInt);
+	    System.out.println(myDouble);
+	    System.out.println(myChar);
+	    System.out.println(myBool);
+
+	}
+
+}
+
+===========================================================================
+
+Write a program to demonstrate boxing and un-boxing
+
+package assignment.coreJava;
+
+public class BoxingUnboxing {
+
+	public static void main(String[] args) {
+		
+		//boxing
+        Integer objInteger = Integer.valueOf(10);
+        //un-boxing
+        int a = objInteger.intValue();
+
+        System.out.println(a);
+	}
+
+}
+
+===========================================================================
+
+Write a program to demonstrate autoboxing and unboxing.
+
+package assignment.coreJava;
+
+public class AutoboxingUnboxing {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//autoboxing
+        Integer objInteger = 10;
+        //un-boxing
+        int a = objInteger;
+
+        System.out.println(a);
+	}
+
+}
