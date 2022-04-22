@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="servlet1" method="post">  
+<form action="servlet" method="post">  
 Name:<input type="text" name="username"/><br/><br/>  
 Password:<input type="password" name="userpass"/><br/><br/>  
 <input type="submit" value="login"/>  
@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;  
   
-@WebServlet("/servlet1")  
+@WebServlet("/servlet")  
 public class FirstServlet extends HttpServlet {  
 public void doPost(HttpServletRequest request, HttpServletResponse response)  
         throws ServletException, IOException {  
@@ -80,14 +80,13 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
                                     login.java
 import java.sql.*;  
   
-public class LoginDao {  
+public class Login {  
 public static boolean validate(String name,String pass){  
 boolean status=false;  
 try{  
 Class.forName("com.mysql.cj.jdbc.Driver");  
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/user","root","Deepu@123");
-PreparedStatement ps=con.prepareStatement(  
-"select * from userreg where name=? and pass=?");  
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/training","root","adarsh@123");
+PreparedStatement ps=con.prepareStatement("select * from user where name=? and pass=?");  
 ps.setString(1,name);  
 ps.setString(2,pass);  
       
